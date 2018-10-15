@@ -5,10 +5,15 @@
  */
 package br.edu.cairu.app.web.integra.cairu.projetos.database.dbclass;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 /**
  *
  * @author everton
  */
+@ManagedBean
+@ViewScoped
 public class ProjetoProfessor {
     
 }
