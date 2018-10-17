@@ -7,6 +7,7 @@ package br.edu.cairu.app.web.integra.cairu.projetos.database.dbclass;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.persistence.Id;
 
 /**
  *
@@ -15,9 +16,11 @@ import javax.faces.bean.ViewScoped;
 @ManagedBean
 @ViewScoped
 public class Anexo {
+    @Id
     private int idArquivo;
     private Long end_arq;
-
+    private String mensagem;
+    
     public int getIdArquivo() {
         return idArquivo;
     }
@@ -34,12 +37,14 @@ public class Anexo {
         this.end_arq = end_arq;
     }
     
-    public void anexar(){
+    public /*void na true*/ String anexar(){
         /**
          * Não sabemos como vamos anexar o arquivo
          * -Pesquisar
          * -Testar
          * -Alterar
          **/
+        mensagem = "Id do arquivo: " + idArquivo;
+        return mensagem;
     }
 }

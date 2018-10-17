@@ -7,6 +7,7 @@ package br.edu.cairu.app.web.integra.cairu.projetos.database.dbclass;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.persistence.Id;
 
 /**
  *
@@ -15,6 +16,7 @@ import javax.faces.bean.ViewScoped;
 @ManagedBean
 @ViewScoped
 public class Projeto {
+    @Id
     private int idProj;
     private String nome;
     //Pesquisar tipo date

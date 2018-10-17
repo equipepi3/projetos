@@ -7,6 +7,7 @@ package br.edu.cairu.app.web.integra.cairu.projetos.database.dbclass;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.persistence.Id;
 
 /**
  *
@@ -15,13 +16,14 @@ import javax.faces.bean.ViewScoped;
 @ManagedBean
 @ViewScoped
 public class Componente{
+    @Id
     private int idEquipe;
     private int aluno_id_aluno;
-
+    private String mensagem;
     public int getIdEquipe() {
         return idEquipe;
     }
-
+   
     public void setIdEquipe(int idEquipe) {
         this.idEquipe = idEquipe;
     }
@@ -33,9 +35,11 @@ public class Componente{
     public void setAluno_id_aluno(int aluno_id_aluno) {
         this.aluno_id_aluno = aluno_id_aluno;
     }
+    
     public void cadastro(){
         //Somente para entrar novos professores
         //provavelmente não necessário tipo de retorno
         //por ser parecido com o set
+        
     }
 }

@@ -7,6 +7,7 @@ package br.edu.cairu.app.web.integra.cairu.projetos.database.dbclass;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.persistence.Id;
 
 /**
  *
@@ -15,9 +16,10 @@ import javax.faces.bean.ViewScoped;
 @ManagedBean
 @ViewScoped
 public class Curso {
+    @Id
     private int idCurso;
     private String nome;
-
+    private String mensagem;
     public int getIdCurso() {
         return idCurso;
     }
@@ -38,5 +40,9 @@ public class Curso {
         //Somente para entrar novos professores
         //provavelmente não necessário tipo de retorno
         //por ser parecido com o set
+         //Fazer um teste try catch
+        //Sendo que aqui entraria as noções de busca em banco
+        mensagem = "Id do curso: " + getIdCurso()
+                + "Nome do curso: " + getNome();
     }
 }

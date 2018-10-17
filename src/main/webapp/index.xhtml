@@ -1,12 +1,149 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h1>Testes de Funcionamento </h1>
+        <p:fieldset>
+            Aluno:
+            Autenticação e cadastro<br/>
+            valores de autenticação<br/>
+            -id:123<br/>
+            -senha:123<br/>
+
+            <h:form>
+                <br/>
+                Aluno<br/>
+                <!--O JSF entende quanto é get e quando é set-->
+                ID:<br/>
+                <p:inputText id="idAluno" value="#{aluno.idAluno}"/><br/>
+
+                Senha:<br/>
+                <p:inputText id="senhaAluno" value="#{aluno.senha}"/><br/>
+                Matricula:<br/>
+                <p:inputText id="matriculaAluno" value="#{aluno.mat_aluno}"/><br/>
+                Nome:<br/>
+                <p:inputText id="nomeAluno" value="#{aluno.nome_Aluno}"/><br/>
+                Nome Social:<br/>
+                <p:inputText id="nomeSocialAluno" value="#{aluno.nome_social}"/><br/>
+                <br/>
+                <!--Funciona como o get-->
+                <h:commandButton value="enviar" action="#{aluno.cadastro()}"></h:commandButton>
+                <h:commandButton value="Login"  action="#{aluno.autenticacao()}"></h:commandButton>
+            </h:form>
+            ID:
+            <h:outputText value="#{aluno.idAluno}"></h:outputText><br/>
+            SENHA:
+            <h:outputText  value="#{aluno.senha}"></h:outputText><br/>
+            mensagem de erro ou acerto:<br/>
+            <h:outputLabel value="#{aluno.mensagem}"></h:outputLabel>
+
+
+            <br />
+        </p:fieldset>
+        
+         <p:fieldset>
+            Anexo:<br/>
+            Anexar()<br/>
+            <h:form>
+                <!--entra os dados-->
+                ID do Anexo:<br/>
+                <p:inputText id="idAnexo" value="#{Anexo.idArquivo}"/><br/>
+                Nome do curso<br/>
+                <!--endereço arquivo não é necessário no momento por ser uma demonstração-->
+                
+                <!--Sai os dados-->
+                ID:<br/>
+                <h:commandButton value="enviar" action="#{anexo.anexar()}"></h:commandButton><br/>
+
+             
+                <h:outputText  value="#{Anexo.idArquivo}"></h:outputText><br/>
+                <h:inputFile></h:inputFile> 
+            </h:form>
+        </p:fieldset>
+        
+        <p:fieldset>
+            Curso:<br/>
+            cadastro<br/>
+            <h:form>
+                <!--entra os dados-->
+                ID do curso:<br/>
+                <p:inputText id="idCurso" value="#{curso.idCurso}"/><br/>
+                Nome do curso<br/>
+                <p:inputText id="nomeCurso" value="#{curso.nome}"/><br/>
+                <!--Sai os dados-->
+                <h:commandButton value="enviar" action="#{curso.cadastro()}"></h:commandButton><br/>
+                ID:<br/>
+                <h:outputText  value="#{curso.idCurso}"></h:outputText><br/>
+                Nome:<br/>
+                <h:outputText value="#{curso.nome}"></h:outputText>
+
+             
+            </h:form>
+        </p:fieldset>
+            
+         <p:fieldset>
+            Disciplina:<br/>
+            cadastro<br/>
+            <h:form>
+                <!--entra os dados-->
+                ID da disciplina:<br/>
+                <p:inputText id="idCurso" value="#{disciplina.idDisciplina}"/><br/>
+                Nome da disciplina<br/>
+                <p:inputText id="nomeCurso" value="#{disciplina.nome_disciplina}"/><br/>
+                <!--Sai os dados-->
+                <h:commandButton value="enviar" action="#{disciplina.cadastro()}"></h:commandButton><br/>
+                ID:<br/>
+                <h:outputText  value="#{disciplina.idDisciplina}"></h:outputText><br/>
+                Nome:<br/>
+                <h:outputText value="#{disciplina.nome_disciplina}"></h:outputText>
+
+
+            </h:form>
+        </p:fieldset>
+        
+        <p:fieldset>
+            Professor:
+            Autenticação, cadastro<br/>
+            valores de autenticação<br/>
+            -id:321<br/>
+            -senha:321<br/>
+
+            <h:form>
+                <br/>
+                Professor<br/>
+                <!--O JSF entende quanto é get e quando é set-->
+                ID:<br/>
+                <p:inputText id="idAluno" value="#{professor.idProf}"/><br/>
+
+                Senha:<br/>
+                <p:inputText id="senhaAluno" value="#{professor.senha}"/><br/>
+                Matricula:<br/>
+                <p:inputText id="matriculaAluno" value="#{professor.mat_professor}"/><br/>
+                Nome:<br/>
+                <p:inputText id="nomeAluno" value="#{professor.nome_professor}"/><br/>
+                Nome Social:<br/>
+                <p:inputText id="nomeSocialAluno" value="#{professor.nome_social}"/><br/>
+                <br/>
+                <!--Funciona como o get-->
+                <h:commandButton value="enviar" action="#{professor.cadastro()}"></h:commandButton>
+                <h:commandButton value="Login" action="#{professor.autenticacao()}"></h:commandButton>
+            </h:form>
+            ID:
+            <h:outputText  value="#{professor.idProf}"></h:outputText><br/>
+            SENHA:'
+            <h:outputText  value="#{professor.senha}"></h:outputText><br/>
+            mensagem de erro ou acerto:<br/>
+            <h:outputLabel value="#{professor.mensagem}"></h:outputLabel>
+
+
+            <br />
+        </p:fieldset>
+        
     </h:body>
 </html>
 

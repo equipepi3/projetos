@@ -7,6 +7,7 @@ package br.edu.cairu.app.web.integra.cairu.projetos.database.dbclass;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.persistence.Id;
 
 /**
  *
@@ -15,9 +16,12 @@ import javax.faces.bean.ViewScoped;
 @ManagedBean
 @ViewScoped
 public class Disciplina {
+    @Id
     private int idDisciplina;
     private String nome_disciplina;
-
+    //Somente utilizado para saída de dados
+    private String mensagem;
+    
     public int getIdDisciplina() {
         return idDisciplina;
     }
@@ -39,5 +43,7 @@ public class Disciplina {
         //Somente para entrar novos professores
         //provavelmente não necessário tipo de retorno
         //por ser parecido com o set
+         mensagem = "Id do curso: " + getIdDisciplina()
+                + "Nome do curso: " + getNome_disciplina();
     }
 }
