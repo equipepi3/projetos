@@ -5,9 +5,12 @@
  */
 package br.edu.cairu.app.web.integra.cairu.projetos.database.dbclass;
 
+import java.io.IOException;
+import java.util.Scanner;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.persistence.Id;
+import javax.servlet.http.Part;
 
 /**
  *
@@ -18,8 +21,10 @@ import javax.persistence.Id;
 public class Anexo {
     @Id
     private int idArquivo;
-    private Long end_arq;
-    private String mensagem;
+    //não sei como utilizar esse endereço...
+    private Part end_arq;
+    //Otipo Part aceita arquivos.
+    public String mensagem;
     
     public int getIdArquivo() {
         return idArquivo;
@@ -29,22 +34,42 @@ public class Anexo {
         this.idArquivo = idArquivo;
     }
 
-    public Long getEnd_arq() {
+    public Part getEnd_arq() {
         return end_arq;
     }
 
-    public void setEnd_arq(Long end_arq) {
+    public void setEnd_arq(Part end_arq) {
         this.end_arq = end_arq;
     }
+
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
     
-    public /*void na true*/ String anexar(){
+    public void  anexar(){
         /**
          * Não sabemos como vamos anexar o arquivo
          * -Pesquisar
          * -Testar
          * -Alterar
          **/
+        //Somente para conseguir alterar os dados de mensagem e mostrar
         mensagem = "Id do arquivo: " + idArquivo;
-        return mensagem;
+        //O código bean dessa classe utilizará esse código:
+        /**
+         * Para entender melhor essa parte do código:
+         * http://blog.triadworks.com.br/upload-de-arquivos-com-jsf-2-2
+        */
+        try{
+            String arquivoEnd = new Scanner(end_arq.getInputStream()).useDelimiter("\\A").next();
+        }catch(IOException e){
+        }
+     
+        
     }
 }

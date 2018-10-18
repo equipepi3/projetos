@@ -8,8 +8,8 @@
     </h:head>
     <h:body>
         <h1>Testes de Funcionamento </h1>
+        <h2> Aluno: </h2><br/>
         <p:fieldset>
-            Aluno:
             Autenticação e cadastro<br/>
             valores de autenticação<br/>
             -id:123<br/>
@@ -45,29 +45,37 @@
 
             <br />
         </p:fieldset>
-        
-         <p:fieldset>
+
+        <h2>Anexo:</h2><br/>
+        <p:fieldset>
             Anexo:<br/>
             Anexar()<br/>
-            <h:form>
+            <!--Eu esqueci da encripitação-->
+            <h:form enctype="multipart/form-data">
                 <!--entra os dados-->
                 ID do Anexo:<br/>
-                <p:inputText id="idAnexo" value="#{Anexo.idArquivo}"/><br/>
+                <p:inputText id="idAnexo" value="#{anexo.idArquivo}"></p:inputText><br/>
                 Nome do curso<br/>
                 <!--endereço arquivo não é necessário no momento por ser uma demonstração-->
-                
+
                 <!--Sai os dados-->
                 ID:<br/>
+                <h:inputFile id="arquivo" value="#{anexo.end_arq}" required="true"></h:inputFile><br/> 
                 <h:commandButton value="enviar" action="#{anexo.anexar()}"></h:commandButton><br/>
 
-             
-                <h:outputText  value="#{Anexo.idArquivo}"></h:outputText><br/>
-                <h:inputFile></h:inputFile> 
+                ID:<br/>
+                <h:outputText  value="#{anexo.idArquivo}"></h:outputText><br/>
+                Endereço:<br/>
+                <h:outputText  value="#{anexo.end_arq}"></h:outputText><br/>
             </h:form>
         </p:fieldset>
-        
+        <h2>Componentes/Equipe:</h2><br/>
         <p:fieldset>
-            Curso:<br/>
+            
+        </p:fieldset>
+
+        <h2>Curso: </h2><br/>
+        <p:fieldset>
             cadastro<br/>
             <h:form>
                 <!--entra os dados-->
@@ -82,32 +90,11 @@
                 Nome:<br/>
                 <h:outputText value="#{curso.nome}"></h:outputText>
 
-             
-            </h:form>
-        </p:fieldset>
-            
-         <p:fieldset>
-            Disciplina:<br/>
-            cadastro<br/>
-            <h:form>
-                <!--entra os dados-->
-                ID da disciplina:<br/>
-                <p:inputText id="idCurso" value="#{disciplina.idDisciplina}"/><br/>
-                Nome da disciplina<br/>
-                <p:inputText id="nomeCurso" value="#{disciplina.nome_disciplina}"/><br/>
-                <!--Sai os dados-->
-                <h:commandButton value="enviar" action="#{disciplina.cadastro()}"></h:commandButton><br/>
-                ID:<br/>
-                <h:outputText  value="#{disciplina.idDisciplina}"></h:outputText><br/>
-                Nome:<br/>
-                <h:outputText value="#{disciplina.nome_disciplina}"></h:outputText>
-
 
             </h:form>
         </p:fieldset>
-        
+        <h2>Professor:</h2><br/>
         <p:fieldset>
-            Professor:
             Autenticação, cadastro<br/>
             valores de autenticação<br/>
             -id:321<br/>
@@ -142,8 +129,68 @@
 
 
             <br />
+
         </p:fieldset>
-        
+
+
+        <h2>    Disciplina:</h2><br/>
+        <p:fieldset>
+            cadastro<br/>
+            <h:form>
+                <!--entra os dados-->
+                ID da disciplina:<br/>
+                <p:inputText id="idCurso" value="#{disciplina.idDisciplina}"/><br/>
+                Nome da disciplina<br/>
+                <p:inputText id="nomeCurso" value="#{disciplina.nome_disciplina}"/><br/>
+                <!--Sai os dados-->
+                <h:commandButton value="enviar" action="#{disciplina.cadastro()}"></h:commandButton><br/>
+                ID:<br/>
+                <h:outputText  value="#{disciplina.idDisciplina}"></h:outputText><br/>
+                Nome:<br/>
+                <h:outputText value="#{disciplina.nome_disciplina}"></h:outputText>
+
+
+            </h:form>
+        </p:fieldset>
+
+        <h2>Projeto</h2>
+        -Ainda falta a equipe<br/>
+        -Ainda falta a lógica de validação<br/>
+        -Ainda falta alguns esquemas de listagens(Disciplinas, equipe)<br/>
+        <p:fieldset>
+            <h:form>
+                <!--Entrada de dados-->
+                ID:<br/>
+                <p:inputText id="idProjeto" value="#{projeto.idProj}"/><br/>
+                Nome:<br/>
+                <p:inputText id="nomeProjeto" value="#{projeto.nome}"/><br/>
+                Descrição:<br/>
+                <p:inputTextarea id="descricaoProjeto" value="#{projeto.desc_proj}"/><br/>
+                Ano<br/>
+                <p:inputText id="anoProjeto" value="#{projeto.ano}"/><br/>
+                <!--A ideia para dados que já temos é buscar os dados no banco e listar para o usuário utilizar-->
+                Disciplina:<br/>
+                <p:fieldset>
+                    <p style="color: red">Cadastre uma Disciplina antes</p>
+                    <select name="Disciplina">
+                        <option><h:outputText value="#{disciplina.nome_disciplina}"></h:outputText></option>
+                    </select><br/>
+                </p:fieldset>
+                Período:
+                <p:fieldset>
+                    <input type="radio" name="Periodo" value=".1" checked="checked" />
+                    .1
+                    <input type="radio" name="Periodo" value=".2" checked="unchecked" />
+                    .2
+                </p:fieldset>
+                <h:commandButton value="Enviar" action="#{projeto.cadastro_proj()}"></h:commandButton><br/>
+                
+                <p:outputLabel value="#{projeto.mensagem}"/>
+            </h:form>
+        </p:fieldset>
+
+
+
     </h:body>
 </html>
 

@@ -16,6 +16,7 @@ import javax.persistence.Id;
 @ManagedBean
 @ViewScoped
 public class Projeto {
+
     @Id
     private int idProj;
     private String nome;
@@ -32,6 +33,8 @@ public class Projeto {
     Componente componente = new Componente();
     Curso curso = new Curso();
     Professor professor = new Professor();
+    //O bom e velho alarme de teste
+    private String mensagem;
 
     public int getIdProj() {
         return idProj;
@@ -113,20 +116,45 @@ public class Projeto {
         this.curso = curso;
     }
 
-    public Professor getProfessor() {
-        return professor;
+    public String getMensagem() {
+        return mensagem;
     }
 
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
     }
-    
+
+    public String cadastro_proj() {
+        mensagem = "ID: " + idProj
+                + "Nome: " + nome
+                + "Descrição: " + ano
+                + "Validação professor: " + "AINDA NÃO IMPLEMENTADO"
+                + "Validação coordenador: " + "AINDA NÃO IMPLEMENTADO"
+                + "Periodo: " + periodo
+                + "Disciplina: " + disciplina.getNome_disciplina()
+                + "ID professor: " + professor.getIdProf()//Na true será o resultado da escolha mas serve como teste
+                + "Id professor Coordenador: " + professor.getIdProf();//no banco diferenciamosos professores.
+
+        return mensagem;
+    }
+
+    /*
+    public String Excluir() {
+           //Resetar as configurações só pra demonstrar
+           idProj = 0;
+           nome = null;
+           desc_proj= null;
+           periodo = 0;
+           disciplina.setNome_disciplina(null);
+           professor.setNome_professor(null);
+           mensagem = mensagem + "Excluido com sucesso";
+           return mensagem;
+
+    }
+     */
     /**
-     * Falta:
-     * Disciplina_idDisciplina
-     * Equipe_idEquipe
-     * Curso_idCurso
-     * professor_idProf
-     * professor_idCoordenador
-     **/
+     * Falta: Disciplina_idDisciplina Equipe_idEquipe Curso_idCurso
+     * professor_idProf professor_idCoordenador
+     *
+     */
 }

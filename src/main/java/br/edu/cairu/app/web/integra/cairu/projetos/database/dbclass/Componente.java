@@ -20,6 +20,7 @@ public class Componente{
     private int idEquipe;
     private int aluno_id_aluno;
     private String mensagem;
+    
     public int getIdEquipe() {
         return idEquipe;
     }
