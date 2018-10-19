@@ -96,26 +96,35 @@ public class Professor {
     }
     
     public /*boolean quando for fazer da forma correta*/ String autenticacao(){
-        //bolean para sinalizar que a autenticação foi bem sucedida
-        if(idProf == idProfAutenticacaoTeste && senha.equals(senhaAutenticacaoTeste)){
-            mensagem = "Conectado!";
-        }else{
-            mensagem = "Falha ao conectar";
-        }
+    
+       if (idProf == idProfAutenticacaoTeste && senha.equals(senhaAutenticacaoTeste) ){
            
-        return mensagem;
+          mensagem = "Autenticação Realizada com sucesso";
+       
+       }else{
+           
+           mensagem = "Falha na Autenticação"; 
+       }
+           
+           return mensagem;
+           
+           
     }
+       
     
     public String cadastro(){
-        //Somente para entrar novos professores
-        //provavelmente não necessário tipo de retorno
-        //por ser parecido com o set
-         mensagem = "id:" + getIdProf() 
-                +"senha:" + getSenha()
-                + "Nome:" + getNome_professor() 
-                + "Nome Social:" + getNome_social()
-                + "Cadastrado com sucesso";
-         return mensagem;
+        
+        mensagem = "Id do Professor" + getIdProf()+
+                    "Matricula do Professor" + getMat_professor()+
+                    "Senha" + getSenha() +
+                    "Nome do Professor" + getNome_professor()+
+                    "Coordenador" + getCoordenador()+
+                    "Nome Social" + getNome_social();
+                
+                    
+        
+        
+        
+        return mensagem;
     }
-    
 }

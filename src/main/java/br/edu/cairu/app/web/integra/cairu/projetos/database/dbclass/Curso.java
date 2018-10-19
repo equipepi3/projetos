@@ -7,7 +7,9 @@ package br.edu.cairu.app.web.integra.cairu.projetos.database.dbclass;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
@@ -15,10 +17,14 @@ import javax.persistence.Id;
  */
 @ManagedBean
 @ViewScoped
+
+@Table(name="curso")
 public class Curso {
     @Id
     private int idCurso;
+    @Column
     private String nome;
+    @Column
     private String mensagem;
     public int getIdCurso() {
         return idCurso;

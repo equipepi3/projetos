@@ -69,11 +69,29 @@
                 <h:outputText  value="#{anexo.end_arq}"></h:outputText><br/>
             </h:form>
         </p:fieldset>
+        
         <h2>Componentes/Equipe:</h2><br/>
         <p:fieldset>
+            <h:form>
+                <br/>
+                <!--O JSF entende quanto é get e quando é set-->
+                ID EQUIPE:<br/>
+                <p:inputText id="idAluno" value="#{componente.idEquipe}"/><br/>
+                Matricula:<br/>
+                <p:inputText id="matriculaAluno" value="#{componente.aluno_id_aluno}"/><br/>
+                <!--Funciona como o get-->
+                <h:commandButton value="enviar" action="#{aluno.cadastro()}"></h:commandButton>
+            </h:form>
+            ID Equipe:
+            <h:outputText value="#{componente.idEquipe}"></h:outputText><br/>
+            ID ALUNO:
+            <h:outputText  value="#{componente.aluno_id_aluno}"></h:outputText><br/>
             
+            <br />
+       
         </p:fieldset>
 
+       
         <h2>Curso: </h2><br/>
         <p:fieldset>
             cadastro<br/>
@@ -99,37 +117,35 @@
             valores de autenticação<br/>
             -id:321<br/>
             -senha:321<br/>
-
-            <h:form>
-                <br/>
-                Professor<br/>
-                <!--O JSF entende quanto é get e quando é set-->
-                ID:<br/>
-                <p:inputText id="idAluno" value="#{professor.idProf}"/><br/>
-
-                Senha:<br/>
+            <h:form>   
+                ID do Professor
+                <p:inputText id="idprof" value="#{professor.idProf}"/><br/>
+                Matricula professor
+                <p:inputText id="mat_professor" value="#{professor.mat_professor}"/><br/>
+                Senha
                 <p:inputText id="senhaAluno" value="#{professor.senha}"/><br/>
-                Matricula:<br/>
-                <p:inputText id="matriculaAluno" value="#{professor.mat_professor}"/><br/>
-                Nome:<br/>
-                <p:inputText id="nomeAluno" value="#{professor.nome_professor}"/><br/>
-                Nome Social:<br/>
-                <p:inputText id="nomeSocialAluno" value="#{professor.nome_social}"/><br/>
-                <br/>
-                <!--Funciona como o get-->
-                <h:commandButton value="enviar" action="#{professor.cadastro()}"></h:commandButton>
-                <h:commandButton value="Login" action="#{professor.autenticacao()}"></h:commandButton>
+                Nome do Professor
+                <p:inputText id="nome_professor" value="#{professor.nome_professor}"/><br/>
+                Nome Social
+                <p:inputText id="nome_social" value="#{professor.nome_social}"/><br/>
+                <p:fieldset>
+                Coordenador<br/> 
+                <input type="radio" name="Validação" value="Sim" enabled="disabled" />Sim 
+                <input type="radio" name="Validação" value="Não" enabled="enabled" checked="selected"/>Não
+                </p:fieldset>
+               
+
+                <h:commandButton value="Cadastrar" action="#{professor.cadastro()}"/><br/>
+                <h:commandButton value="Login" action="#{professor.autenticacao()}"/><br/>
+
+
             </h:form>
-            ID:
-            <h:outputText  value="#{professor.idProf}"></h:outputText><br/>
-            SENHA:'
-            <h:outputText  value="#{professor.senha}"></h:outputText><br/>
-            mensagem de erro ou acerto:<br/>
-            <h:outputLabel value="#{professor.mensagem}"></h:outputLabel>
-
-
-            <br />
-
+                <h:outputText value="#{professor.idProf}"/><br/>
+                <h:outputText value="#{professor.mat_professor}"/><br/>
+                <h:outputText value="#{professor.nome_social}"/><br/>
+                <h:outputText value="#{professor.senha}"/><br/>
+                <h:outputLink value="#{professor.nome_professor}"/><br/>
+                <h:outputText value="#{professor.coordenador}"/><br/>
         </p:fieldset>
 
 
@@ -176,6 +192,21 @@
                         <option><h:outputText value="#{disciplina.nome_disciplina}"></h:outputText></option>
                     </select><br/>
                 </p:fieldset>
+                Curso:
+                <p:fieldset>
+                    <p style="color: red">Cadastre uma Curso antes</p>
+                    <select name="Disciplina">
+                        <option><h:outputText value="#{curso.idCurso}"></h:outputText></option>
+                        
+                    </select><br/>
+                </p:fieldset>
+                 Equipe:<br/>
+                <p:fieldset>
+                    <p style="color: red"> Selecione uma equipe antes de cadastrar</p>
+                    <select name="Equipe">
+                        <option><h:outputText value="#{componente.idEquipe}"></h:outputText></option>
+                    </select><br/>
+                </p:fieldset>
                 Período:
                 <p:fieldset>
                     <input type="radio" name="Periodo" value=".1" checked="checked" />
@@ -184,7 +215,7 @@
                     .2
                 </p:fieldset>
                 <h:commandButton value="Enviar" action="#{projeto.cadastro_proj()}"></h:commandButton><br/>
-                
+
                 <p:outputLabel value="#{projeto.mensagem}"/>
             </h:form>
         </p:fieldset>
