@@ -7,7 +7,11 @@ package br.edu.cairu.app.web.integra.cairu.projetos.database.dbclass;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
@@ -15,9 +19,13 @@ import javax.persistence.Id;
  */
 @ManagedBean
 @ViewScoped
+
+@Entity
+@Table(name="disciplina")
 public class Disciplina {
-    @Id
+    @Id @GeneratedValue
     private int idDisciplina;
+    @Column
     private String nome_disciplina;
     //Somente utilizado para saída de dados
     private String mensagem;

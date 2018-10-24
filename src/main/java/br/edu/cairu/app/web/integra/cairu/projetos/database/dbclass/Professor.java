@@ -7,7 +7,11 @@ package br.edu.cairu.app.web.integra.cairu.projetos.database.dbclass;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
@@ -16,16 +20,26 @@ import javax.persistence.Id;
 
 @ManagedBean
 @ViewScoped
+
+@Entity
+@Table(name="professor")
 public class Professor {
-    @Id
+    @Id @GeneratedValue
     private int idProf;
+    @Column
     private int idProfAutenticacaoTeste = 321;
+    @Column
     private String mat_professor;
+    @Column
     private int Coordenador;
+    @Column
     private String nome_professor;
     //Teste usando long
+    @Column
     private String senha;
+    @Column
     private String senhaAutenticacaoTeste = "321";
+    @Column
     private String nome_social;
     
     private String mensagem;

@@ -7,7 +7,11 @@ package br.edu.cairu.app.web.integra.cairu.projetos.database.dbclass;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
@@ -15,20 +19,31 @@ import javax.persistence.Id;
  */
 @ManagedBean
 @ViewScoped
+
+@Entity
+@Table(name = "projeto")
 public class Projeto {
 
-    @Id
+    @Id @GeneratedValue
     private int idProj;
+    
+    @Column
     private String nome;
     //Pesquisar tipo date
+    @Column
     private String ano;
+    @Column
     private String desc_proj;
     //Vai ser alterada por professor
+    @Column
     private int validacao_prof;
     //Perguntar por que não int
+    @Column
     private String validacao_coord;
+    @Column
     private int periodo;
     //No lugar das FK's
+    //Caçar como é as anotações para FK's
     Disciplina disciplina = new Disciplina();
     Componente componente = new Componente();
     Curso curso = new Curso();

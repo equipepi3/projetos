@@ -9,7 +9,11 @@ import java.io.IOException;
 import java.util.Scanner;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.servlet.http.Part;
 
 /**
@@ -18,10 +22,13 @@ import javax.servlet.http.Part;
  */
 @ManagedBean
 @ViewScoped
+
+@Entity
+@Table(name="anexo")
 public class Anexo {
-    @Id
+    @Id @GeneratedValue
     private int idArquivo;
-    //não sei como utilizar esse endereço...
+    @Column
     private Part end_arq;
     //Otipo Part aceita arquivos.
     public String mensagem;

@@ -8,6 +8,8 @@ package br.edu.cairu.app.web.integra.cairu.projetos.database.dbclass;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -18,14 +20,16 @@ import javax.persistence.Table;
 @ManagedBean
 @ViewScoped
 
+@Entity
 @Table(name="curso")
 public class Curso {
-    @Id
+    @Id @GeneratedValue
     private int idCurso;
     @Column
     private String nome;
     @Column
     private String mensagem;
+    
     public int getIdCurso() {
         return idCurso;
     }

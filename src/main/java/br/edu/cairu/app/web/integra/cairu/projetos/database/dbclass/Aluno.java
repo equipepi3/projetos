@@ -5,10 +5,15 @@
  */
 package br.edu.cairu.app.web.integra.cairu.projetos.database.dbclass;
 
+import java.sql.SQLException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
@@ -16,17 +21,29 @@ import javax.persistence.Id;
  */
 @ManagedBean
 @ViewScoped
-
+//Sem nenhuma forma de relação
+//demonstra que é uma table
+//demonstra que é uma entidade
+@Entity
+@Table(name = "aluno")
 public class Aluno {
-    @Id
+
+    @Id @GeneratedValue
     private int idAluno;
+    @Column
     private int idAlunoAutenticacaoTeste = 123;
+    @Column
     private String mat_aluno;
+    @Column
     private String nome_Aluno;
+    @Column
     private String nome_social;
+    @Column
     private String senha;
+    @Column
     private String senhaAutenticacaoTeste = "123";
     private String mensagem;
+
     //Métodos especiais
     public int getIdAluno() {
         return idAluno;
@@ -75,25 +92,27 @@ public class Aluno {
     public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
     }
-    
-     //Metódos personalizados
-    public String cadastro(){
-        mensagem = "id:" + getIdAluno() + 
-                "senha:" + getSenha()
+
+    //Metódos personalizados
+    public String cadastro() {
+        mensagem = "id:" + getIdAluno()
+                + "senha:" + getSenha()
                 + "Nome:" + getNome_Aluno()
                 + "Nome Social:" + getNome_social()
                 + "Cadastrado com sucesso";
+        AlunoDAO.getInstance().merge(this);
         return mensagem;
         //guardar as informações no banco
         //Somente string no momento
         //Aqui com o banco vamos enviar ao banco
     }
-    public boolean autenticacao(){
+
+    public boolean autenticacao() {
         //Fazer um teste try catch
         //Sendo que aqui entraria as noções de busca em banco
-        if(idAluno == idAlunoAutenticacaoTeste && senha.equals(senhaAutenticacaoTeste)){
+        if (idAluno == idAlunoAutenticacaoTeste && senha.equals(senhaAutenticacaoTeste)) {
             mensagem = "Conectado!";
-        }else{
+        } else {
             mensagem = "Falha ao conectar";
         }
         return true;
